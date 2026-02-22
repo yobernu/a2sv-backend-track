@@ -80,6 +80,10 @@ func (c *LibraryController) handleListBorrowedBooks() {
 	fmt.Print("Enter Member ID: ")
 	fmt.Scanln(&memberID)
 	books := c.Service.ListBorrowedBooks(memberID)
+	if len(books) == 0 {
+		fmt.Println("No books borrowed by this member.")
+		return
+	}
 	for _, book := range books {
 		fmt.Printf("ID: %d, Title: %s, Author: %s\n", book.ID, book.Title, book.Author)
 	}
@@ -129,6 +133,10 @@ func (c *LibraryController) handleReturnBook() {
 
 func (c *LibraryController) handleListAvailableBooks() {
 	books := c.Service.ListAvailableBooks()
+	if len(books) == 0 {
+		fmt.Println("No available books at the moment.")
+		return
+	}
 	for _, book := range books {
 		fmt.Printf("ID: %d, Title: %s, Author: %s, Count: %d\n", book.ID, book.Title, book.Author)
 	}

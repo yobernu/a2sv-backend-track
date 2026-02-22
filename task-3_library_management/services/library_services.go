@@ -13,8 +13,6 @@ type LibraryManager interface {
 	ListAvailableBooks() []models.Book
 	ListBorrowedBooks(memberID int) []models.Book
 
-	AddMember(member models.Member) error
-
 	//
 }
 
