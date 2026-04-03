@@ -50,6 +50,7 @@ func (tc *TaskController) UpdateTask(c *gin.Context) {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}
+
 	if err := tc.services.UpdateTask(taskID, updatedTask); err != nil {
 		c.JSON(500, gin.H{"error": err.Error()})
 		return

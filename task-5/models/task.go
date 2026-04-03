@@ -8,12 +8,6 @@ const (
 	Completed  Status = "Completed"
 )
 
-//	type Task struct {
-//		ID          string `json:"id"`
-//		Title       string `json:"title"`
-//		Description string `json:"description"`
-//		Status      Status `json:"status"`
-//	}
 type Task struct {
 	ID          string  `json:"id"`
 	Title       *string `json:"title,omitempty"`
